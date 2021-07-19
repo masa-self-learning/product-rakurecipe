@@ -1,0 +1,26 @@
+<% provide(:title, "ユーザー一覧") %>
+
+<div class="global-container">
+  <h1 class="main__title pt-sm">ユーザー一覧</h1>
+
+  <% @users.each do |user| %>
+    <%= link_to user_path(user), class: "link--no-decorate" do %>
+      <div class="user-item-md">
+        <figure class="user-item-md__icon-wrapper">
+            <%= attachment_image_tag user, :profile_image, class: "user-item-md__icon", fallback: "no-image.jpg" %>
+        </figure>
+        <div class="user-item-md__body">
+          <div class="user-item-md__name">
+            <%= user.username %>
+          </div>
+          <p class="user-item-md__profile"><%= user.profile %></p>
+          <div class="number-of-posts">
+            <div class="number-of-posts__title">投稿数</div>
+            <div class="number-of-posts__text"><%= user.recipes.count %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= paginate @users %>
+</div>

@@ -1,0 +1,34 @@
+<% provide(:title, "レシピ編集") %>
+
+<div class="global-container">
+  <h1 class="main__title pt-sm">レシピ編集</h1>
+
+  <% if @recipe.errors.any? %>
+    <h2><%= pluralize(@recipe.errors.count, "error") %>prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_with model: @recipe, class: "form" do |f| %>
+    <div class="form__inner">
+      <%= f.label :title, "レシピ名", class: "form__label" %>
+      <%= f.text_field :title, class: "form__input" %>
+    </div>
+    <div class="form__inner">
+      <%= f.label :profile, "レシピ紹介文", class: "form__label" %>
+      <%= f.text_area :profile, class: "form__textarea form__textarea--md", placeholder: "例：昔ながらの家庭的なカレーが特徴です。" %>
+    </div>
+    <div class="form__inner">
+      <%= f.label :body, "作り方", class: "form__label" %>
+      <%= f.text_area :body, class: "form__textarea form__textarea--lr" %>
+    </div>
+    <div class="form__inner mb-lg">
+      <%= f.label :image, "レシピ画像", class: "form__label" %>
+      <%= f.attachment_field :image, class: "form__input" %>
+    </div>
+    <%= f.submit "更新する", class: "btn btn--submit" %>
+  <% end %>
+</div>

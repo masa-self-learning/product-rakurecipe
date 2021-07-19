@@ -1,0 +1,65 @@
+<% provide(:title, "ユーザー詳細") %>
+
+<div class="global-container">
+  <h1 class="main__title pt-sm">ユーザー詳細</h1>
+  <div class="card-user">
+    <div class="card-user__bg-icon-link">
+      <figure class="card-user__bg-img-wrapper">
+        <%= attachment_image_tag @user, :profile_bg_image, class: "card-user__bg-img", fallback: "no-image.jpg" %>
+      </figure>
+
+      <% if current_user && @user.id == current_user.id %>
+        <div class="link link--card-user">
+          <div class="link__outer">
+            <%= link_to "編集", edit_user_path(@user), class: "link__link" %>
+          </div>
+          <div class="link__outer">
+            <%= link_to "削除", user_registration_path(@user), method: :delete, class: "link__link", data: {confirm: "削除しますか？"} %>
+          </div>
+        </div>
+      <% end %>
+
+      <figure class="card-user__icon-wrapper">
+        <%= attachment_image_tag @user, :profile_image, class: "user-item-md__icon", fallback: "no-image.jpg" %>
+      </figure>
+    </div>
+    <div class="card-user__name"><%= @user.username %></div>
+    <p class="card-user__profile"><%= @user.profile %></p>
+    <hr>
+  </div>
+
+  <% @recipe.each do |recipe| %>
+    <%= link_to recipe_path(recipe), class: "link--no-decorate link--hover-gray" do %>
+      <div class="media">
+        <figure class="media__img-wrapper">
+          <%= attachment_image_tag recipe, :image, class: "media__img", fallback: "no-image.jpg" %>
+        </figure>
+        <div class="media__body">
+          <div class="media__body-head">
+            <div class="media__title"><%= recipe.title %></div>
+            <p class="media__text"><%= recipe.profile %></p>
+          </div>
+          <div class="media__body-foot">
+            <div class="media__body-foot">
+
+              <% if current_user && @user.id == current_user.id %>
+                <object>
+                  <div class="link mb-5">
+                    <%= link_to "編集", edit_recipe_path(recipe), class: "link__link" %>
+                    <%= link_to "削除", recipe_path(recipe), method: :delete, data: {confirm: "削除しますか？"}, class: "link__link" %>
+                  </div>
+                </object>
+              <% end %>
+
+              <div class="posted-date">
+                <div class="posted-date__title font-sm">投稿</div>
+                <div class="posted-date__text font-sm"><%= recipe.updated_at.strftime("%Y年%m月%d日 %H:%M") %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <% end %>
+  <% end %>
+  <%= paginate @recipe %>
+</div>

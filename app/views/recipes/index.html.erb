@@ -1,0 +1,39 @@
+<% provide(:title, "レシピ一覧") %>
+
+<div class="global-container">
+  <h1 class="main__title pt-sm">レシピ一覧</h1>
+
+  <% @recipes.each do |recipe|%>
+    <%= link_to recipe_path(recipe), class: "link--no-decorate link--hover-gray" do %>
+      <div class="media">
+        <figure class="media__img-wrapper">
+          <%= attachment_image_tag recipe, :image, class: "media__img", fallback: "no-image.jpg" %>
+        </figure>
+        <div class="media__body">
+          <div class="media__body-head">
+            <div class="media__title"><%= recipe.title %></div>
+            <p class="media__text"><%= recipe.profile %></p>
+          </div>
+          <div class="media__body-foot">
+            <object>
+              <%= link_to user_path(recipe.user), class: "link--no-decorate" do %>
+                <div class="user-item-xs mb-5">
+                  <div class="user-item-xs__title">by</div>
+                  <figure class="user-item-xs__icon-wrapper">
+                    <%= attachment_image_tag recipe.user, :profile_image, class: "user-item-xs__icon", fallback: "no-image.jpg" %>
+                  </figure>
+                  <div class="user-item-xs__text"><%= recipe.user.username %></div>
+                </div>
+               <% end %>
+             </object>
+            <div class="posted-date">
+              <div class="posted-date__title font-sm">投稿</div>
+              <div class="posted-date__text font-sm"><%= recipe.updated_at.strftime("%Y年%m月%d日 %H:%M") %></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= paginate @recipes %>
+  </div>

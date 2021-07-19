@@ -1,0 +1,38 @@
+<% provide(:title, "ユーザー編集") %>
+
+<div class="global-container">
+  <h1 class="main__title pt-sm">ユーザー編集</h1>
+
+  <% if @user.errors.any? %>
+    <h2><%= pluralize(@user.errors.count, "error") %>prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_with model: @user, class: "form" do |f| %>
+    <div class="form__inner">
+      <%= f.label :username, "名前(ニックネーム)", class: "form__label" %>
+      <%= f.text_field :username, class: "form__input" %>
+    </div>
+    <div class="form__inner">
+      <%= f.label :email, "メールアドレス", class: "form__label" %>
+      <%= f.email_field :email, class: "form__input" %>
+    </div>
+    <div class="form__inner">
+      <%= f.label :profile, "プロフィール", class: "form__label" %>
+      <%= f.text_area :profile, class: "form__textarea form__textarea--md" %>
+    </div>
+    <div class="form__inner">
+      <%= f.label :profile_image, "アイコン画像", class: "form__label" %>
+      <%= f.attachment_field :profile_image, class: "form__input" %>
+    </div>
+    <div class="form__inner mb-lg">
+      <%= f.label :profile_bg_image, "背景画像", class: "form__label" %>
+      <%= f.attachment_field :profile_bg_image, class: "form__input" %>
+    </div>
+    <%= f.submit "更新する", class: "btn btn--submit" %>
+  <% end %>
+</div>

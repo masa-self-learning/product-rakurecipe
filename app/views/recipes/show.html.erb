@@ -1,0 +1,38 @@
+<% provide(:title, "レシピ詳細") %>
+
+<div class="global-container">
+  <h1 class="main__title pt-sm">レシピ詳細</h1>
+
+  <div class="card-recipe">
+    <div class="card-recipe__main-title"><%= @recipe.title %></div>
+    <hr>
+    <p class="card-recipe__profile"><%= simple_format @recipe.profile %></p>
+    <figure class="card-recipe__img-wrapper">
+      <%= attachment_image_tag @recipe, :image, class: "card-recipe__img", fallback: "no-image.jpg" %>
+    </figure>
+    <div class="card-recipe__heading">
+      <div class="card-recipe__sub-title">作り方</div>
+      <div class="posted-date">
+        <div class="posted-date__title">投稿</div>
+        <div class="posted-date__text"><%= @recipe.updated_at.strftime("%Y年%m月%d日 %H:%M") %></div>
+      </div>
+    </div>
+    <hr class="mb-sm">
+    <div class="card-recipe__content"><%= simple_format @recipe.body %></div>
+    <div class="card-recipe__foot">
+      <%= link_to user_path(@user) do %>
+        <div class="user-item-lr">
+          <figure class="user-item-lr__icon-wrapper">
+            <%= attachment_image_tag @user, :profile_image, class: "user-item-lr__icon", fallback: "no-image.jpg" %>
+          </figure>
+          <div class="user-item-lr__name"><%= @user.username %></div>
+        </div>
+      <% end %>
+      <% if current_user && @user.id == current_user.id %>
+        <div class="link">
+          <%= link_to "編集", edit_recipe_path, class: "link__link" %>
+          <%= link_to "削除", recipe_path(@recipe), method: :delete, data: {confirm: "削除しますか？"}, class: "link__link" %>
+        </div>
+      <% end %>
+    </div>
+  </div>

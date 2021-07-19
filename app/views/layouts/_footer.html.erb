@@ -1,0 +1,26 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <figure class="logo">
+      <%= image_tag "rakurecipe-logo.png", class: "logo__img" %>
+    </figure>
+    <div class="footer__title">
+      料理を楽しくラクに作ろう
+    </div>
+    <nav class="footer__nav">
+      <ul class="footer-menu">
+        <li class="footer-menu__item">
+          <%= link_to "ホーム", root_path, class: "footer-menu__link" %>
+        </li>
+        <li class="footer-menu__item">
+          <%= link_to "レシピ一覧", recipes_path, class: "footer-menu__link" %>
+        </li>
+        <li class="footer-menu__item">
+          <%= link_to "ユーザー一覧", users_path, class: "footer-menu__link" %>
+        </li>
+      </ul>
+      <div class="footer__copyright">
+        &copy; Rakurecipe
+      </div>
+    </nav>
+  </div>
+</footer>
