@@ -13,9 +13,6 @@
           <div class="link__outer">
             <%= link_to "編集", edit_user_path(@user), class: "link__link" %>
           </div>
-          <div class="link__outer">
-            <%= link_to "削除", user_registration_path(@user), method: :delete, class: "link__link", data: {confirm: "削除しますか？"} %>
-          </div>
         </div>
       <% end %>
 
