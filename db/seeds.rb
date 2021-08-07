@@ -1,7 +1,8 @@
 #ユーザーを100人生成
 User.create!(username: "デモユーザー",
              email: "demo@example.com",
-             profile_image: File.open("./app/assets/images/no-image-profile.png"), 
+             profile: "デモユーザーです。",
+             profile_image: File.open("./app/assets/images/demo-user.png"), 
              profile_bg_image: File.open("./app/assets/images/profile-bg-image.jpg"),
              password: "12345678",
              password_confirmation: "12345678")
