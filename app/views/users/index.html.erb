@@ -2,12 +2,20 @@
 
 <div class="global-container">
   <h1 class="main__title pt-sm">ユーザー一覧</h1>
+  <nav class="navbar navbar-light bg-light mb-10">
+    <div class="container-fluid">
+      <%= search_form_for @q, class: "d-flex" do |f| %>
+        <%= f.search_field :username_cont, class: "form-control me-2", placeholder: "ユーザー名" %>
+        <%= f.submit '検索', class: "btn btn-outline-success" %>
+      <% end %>
+    </div>
+  </nav>
 
   <% @users.each do |user| %>
     <%= link_to user_path(user), class: "link--no-decorate" do %>
       <div class="user-item-md">
         <figure class="user-item-md__icon-wrapper">
-            <%= attachment_image_tag user, :profile_image, class: "user-item-md__icon", fallback: "no-image.jpg" %>
+            <%= attachment_image_tag user, :profile_image, class: "user-item-md__icon", fallback: "no-image-profile.png" %>
         </figure>
         <div class="user-item-md__body">
           <div class="user-item-md__name">

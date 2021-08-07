@@ -17,7 +17,7 @@
       <% end %>
 
       <figure class="card-user__icon-wrapper">
-        <%= attachment_image_tag @user, :profile_image, class: "user-item-md__icon", fallback: "no-image.jpg" %>
+        <%= attachment_image_tag @user, :profile_image, class: "user-item-md__icon", fallback: "no-image-profile.png" %>
       </figure>
     </div>
     <div class="card-user__name"><%= @user.username %></div>
@@ -29,7 +29,7 @@
     <%= link_to recipe_path(recipe), class: "link--no-decorate link--hover-gray" do %>
       <div class="media">
         <figure class="media__img-wrapper">
-          <%= attachment_image_tag recipe, :image, class: "media__img", fallback: "no-image.jpg" %>
+          <%= attachment_image_tag recipe, :image, class: "media__img", fallback: "no-image-recipe.jpg" %>
         </figure>
         <div class="media__body">
           <div class="media__body-head">

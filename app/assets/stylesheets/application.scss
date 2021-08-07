@@ -44,6 +44,9 @@ body {
 .mb-5 {
   margin-bottom: 5px !important;
 }
+.mb-10 {
+  margin-bottom: 10px !important;
+}
 .mb-xs {
   margin-bottom: 10px !important;
 }
@@ -352,6 +355,7 @@ body {
   }
   &__text {
     font-size: 14px;
+    height: 42px;
     @extend .mb-sm;
   }
 }
@@ -732,13 +736,6 @@ body {
   .main__title {
     flex-basis: 100%;
   }
-  .card--col2 {
-    .card {
-      &:nth-of-type(2n) {
-        margin-right: 0;
-      }
-    }
-  }
   .card {
     flex-basis: 47.5%;
     margin-right: 5%;
@@ -840,13 +837,6 @@ body {
   .home-index-container {
     max-width: 921.594px;
   }
-  .card--col3 {
-    .card {
-      &:nth-of-type(3n) {
-        margin-right: 0;
-      }
-    }
-  }
   .card {
     flex-basis: 30%;
 
@@ -866,16 +856,37 @@ body {
   .home-index-container {
     max-width: 1296px;
   }
-  .card--col4 {
-    .card {
-      &:nth-of-type(4n) {
-        margin-right: 0;
-      }
-    }
-  }
   .card {
     flex-basis: 23.125%;
     margin-right: 2.5%;
   }
 }
 
+// homeのcardカラムmargin設定
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card--col {
+    .card {
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .card--col {
+    .card {
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .card--col {
+    .card {
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+    }
+  }
+}

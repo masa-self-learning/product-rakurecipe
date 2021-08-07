@@ -26,6 +26,10 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
         username: 名前(ニックネーム)
+      recipe:
+        title: レシピ名
+        body: 作り方
+        image: レシピ画像
     models:
       user: ユーザー
   devise:

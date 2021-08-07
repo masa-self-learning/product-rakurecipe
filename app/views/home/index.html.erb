@@ -10,13 +10,13 @@
   <% end %>
 </div>
 <div class="global-container">
-  <div class="home-index-container">
+  <div class="home-index-container card--col">
     <h1 class="main__title">新着レシピ12選</h1>
     <% @recipes.each do |recipe|%>
       <div class="card">
         <%= link_to recipe_path(recipe), class: "link--no-decorate link--hover-gray" do %>
           <figure class="card__img-wrapper">
-              <%= attachment_image_tag recipe, :image, class: "card__img", fallback: "no-image.jpg" %>
+              <%= attachment_image_tag recipe, :image, class: "card__img", fallback: "no-image-recipe.jpg" %>
           </figure>
           <div class="card__body">
             <h2 class="card__title"><%= recipe.title %></h2>
@@ -26,7 +26,7 @@
               <%= link_to user_path(recipe.user), class: "link--no-decorate" do %>
                 <div class="user-item-sm mb-xs">
                   <figure class="user-item-sm__icon-wrapper">
-                    <%= attachment_image_tag recipe.user, :profile_image, class: "user-item-sm__icon", fallback: "no-image.jpg" %>
+                    <%= attachment_image_tag recipe.user, :profile_image, class: "user-item-sm__icon", fallback: "no-image-profile.png" %>
                   </figure>
                   <div class="user-item-sm__name"><%= recipe.user.username %></div>
                 </div>
@@ -44,4 +44,3 @@
     <% end %>
   </div>
 </div>
-<%= javascript_pack_tag 'home/index' %>

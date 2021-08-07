@@ -3,7 +3,7 @@
 簡単な操作で画像付きのレシピを気軽に投稿できます。  
 レスポンシブ対応しているので、PC、iPad・スマホからでも確認できます。
 
-![product-rakurecipe_home](https://user-images.githubusercontent.com/78526536/128114093-84301c21-1698-4c54-ab30-232fd1245bd8.png)
+![product-rakurecipe_home](https://user-images.githubusercontent.com/78526536/128594710-21f7dacf-45f5-4ce3-bbc8-fb51a9030532.png)
 
 ## 作成の経緯
 下記の基本的な技術を習得することを目的として作成しました。
@@ -15,16 +15,17 @@
 - 未ログインの場合は、投稿されたレシピ一覧とユーザー一覧を見ることができます。
 - ログイン済みの場合は、上記に加えてレシピ投稿、レシピ詳細とユーザー詳細を見ることができます。
 
+![recipe_index](https://user-images.githubusercontent.com/78526536/128595154-99f6e163-cd64-4c38-80f8-92bdd82ff915.png)
 
-![modal](https://user-images.githubusercontent.com/78526536/128116385-723be946-f62c-4c21-9748-70fa751eb871.png)
+![posting](https://user-images.githubusercontent.com/78526536/128594796-3d85704c-31d7-429a-8e0c-04cba6a171e7.png)
 
-![works_index](https://user-images.githubusercontent.com/78526536/128116427-ea8efe1b-eaec-494a-b89f-a7427cee8622.png)
+![mypage](https://user-images.githubusercontent.com/78526536/128597159-4b30eb6d-8e10-4d3b-82a5-1ecf314dfc4c.png)
 
 ## URL
 https://product-rakurecipe.herokuapp.com/
 
  - ログイン
-    - test@ &ensp;&ensp; (社員番号)
+    - demo@example.com (メールアドレス)
     - 12345678 (パスワード)
 
 ## 使用技術
@@ -41,3 +42,4 @@ https://product-rakurecipe.herokuapp.com/
   - 画像投稿(refile)
   - クラウドストレージ(S3)
 - ページネーション機能(kaminari)
+- 検索機能(ransack)
