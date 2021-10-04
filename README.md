@@ -21,7 +21,9 @@
 
 ![mypage](https://user-images.githubusercontent.com/78526536/128597159-4b30eb6d-8e10-4d3b-82a5-1ecf314dfc4c.png)
 
-## URL
+## GitHub_URL
+https://github.com/masa-self-learning/product-rakurecipe
+## APP_URL
 https://product-rakurecipe.herokuapp.com/
 
  - ログイン
