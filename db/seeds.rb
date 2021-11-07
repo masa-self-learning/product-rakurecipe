@@ -1,12 +1,24 @@
-#ユーザーを100人生成
-User.create!(username: "デモユーザー",
-             email: "demo@example.com",
-             profile: "デモユーザーです。",
-             profile_image: File.open("./app/assets/images/demo-user.png"), 
-             profile_bg_image: File.open("./app/assets/images/profile-bg-image.jpg"),
-             password: "12345678",
-             password_confirmation: "12345678")
+#ゲストユーザーを生成
+  User.create!(username: "デモユーザー",
+               email: "demo@example.com",
+               profile: "デモユーザーです。",
+               profile_image: File.open("./app/assets/images/demo-user.png"), 
+               profile_bg_image: File.open("./app/assets/images/profile-bg-image.jpg"),
+               password: "12345678",
+               password_confirmation: "12345678")        
 
+#追加ゲストユーザーを8人生成               
+8.times do |n|
+  User.create!(username: "デモユーザー#{n+1}",
+               email: "demo#{n+1}@example.com",
+               profile: "デモユーザー#{n+1}です。",
+               profile_image: File.open("./app/assets/images/demo-user.png"), 
+               profile_bg_image: File.open("./app/assets/images/profile-bg-image.jpg"),
+               password: "12345678",
+               password_confirmation: "12345678")
+end             
+
+#ユーザーを99人生成             
 99.times do |n|
   username = "楽太郎#{n+1}"
   email =  "rakurecipe#{n+1}@example.com"
