@@ -26,8 +26,11 @@ https://github.com/masa-self-learning/product-rakurecipe
 ## APP_URL
 https://product-rakurecipe.herokuapp.com/
 
- - ログイン
-    - demo@example.com (メールアドレス)
+ - ゲストユーザー
+    - demo@example.com (メールアドレス) 
+    - 12345678 (パスワード)
+- 予備ゲストユーザー(8名分)
+    - demo1@example.com ~ demo8@example.com  (メールアドレス) 
     - 12345678 (パスワード)
 
 ## 使用技術
